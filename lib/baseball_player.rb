@@ -9,7 +9,7 @@ class BaseballPlayer
   end
 
   def formated_average
-    if @average == -1
+    if @average <= -1
       "---"
     elsif @average == 0
       ".000"
@@ -25,7 +25,9 @@ class BaseballPlayer
 
   private
   def calc_average
-    if @at_bat == 0 || @appearances == 0
+    if @appearances == 0
+      -2
+    elsif @at_bat == 0
       -1
     else
       (@hits.to_f / @at_bat).round(3)

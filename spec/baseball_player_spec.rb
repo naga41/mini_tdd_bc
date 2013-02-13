@@ -1,6 +1,6 @@
 # coding: utf-8.rb
 require File.dirname(__FILE__) + "/spec_helper"
-require "average_calcurator"
+require "baseball_player"
 
 describe BaseballPlayer do
   describe "formated_average" do
@@ -52,15 +52,12 @@ describe BaseballPlayer do
       BaseballPlayer.new(10, 0, 0).average.should eq -1
     end
 
+    it "0打席、0打数、0安打の時、-2を返す" do
+      BaseballPlayer.new(0, 0, 0).average.should eq -2
+    end
+
     it "10打席、5打数、1安打の時、0.200を返す" do
       BaseballPlayer.new(10, 5, 1).average.should eq 0.200
     end
   end
-    # it "選手のリストを受け取り、打率の順位を返す" do
-    #   ebis = BaseballPlayer.new(10, 10, 10)
-    #   ktwk = BaseballPlayer.new(10, 10, 5)
-    #   ngt  = BaseballPlayer.new(0, 0, 0)
-    #   nskw = BaseballPlayer.new(10, 0, 0)
-    #   player.ranking([ebis, ktwk, ngt, nskw]).should eq ["ebis", "ktwk", "nskw", "ngt"]
-    # end
 end
