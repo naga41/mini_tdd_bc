@@ -43,17 +43,17 @@ describe BaseballPlayer do
     end
   end
 
-  describe "calc_average" do
+  describe "average" do
     it "10打席、10打数、0安打の時、0.000を返す" do
-      BaseballPlayer.new(10, 10, 0).calc_average.should eq 0.000
+      BaseballPlayer.new(10, 10, 0).average.should eq 0.000
     end
 
     it "10打席、0打数、0安打の時、-1を返す" do
-      BaseballPlayer.new(10, 0, 0).calc_average.should eq -1
+      BaseballPlayer.new(10, 0, 0).average.should eq -1
     end
 
     it "10打席、5打数、1安打の時、0.200を返す" do
-      BaseballPlayer.new(10, 5, 1).calc_average.should eq 0.200
+      BaseballPlayer.new(10, 5, 1).average.should eq 0.200
     end
   end
     # it "選手のリストを受け取り、打率の順位を返す" do
