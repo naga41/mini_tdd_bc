@@ -3,17 +3,26 @@ class BaseballPlayer
     @appearances = appearances
     @at_bat      = at_bat
     @hits        = hits
+    @average     = calc_average
   end
 
-  def calc
-    if @appearances == 0 || @at_bat == 0
+  def calc_average
+    if @at_bat == 0 or @appearances == 0
+      -1
+    else
+      (@hits.to_f / @at_bat).round(3)
+    end
+  end
+
+  def formated_average
+    if @average == -1
       "---"
-    elsif @hits == 0
+    elsif @average == 0
       ".000"
-    elsif @at_bat == @hits
+    elsif @average == 1
       "1.00"
     else
-      "." + "#{((@hits.to_f / @at_bat).round(3)*1000).to_i}"
+      "." + "#{(@average*1000).to_i}"
     end
   end
 
