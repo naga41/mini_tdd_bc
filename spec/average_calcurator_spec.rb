@@ -25,5 +25,9 @@ describe AvarageCalcurator do
     it "0打席、0打数、0安打の時、nilを返す" do
       calcurator.calc(0, 0, 0).should eq nil
     end
+
+    it "10打席、0打数、0安打の時、0.000を返す" do
+      calcurator.calc(10, 0, 0).should eq 0.000
+    end
   end
 end
